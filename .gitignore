@@ -1,0 +1,28 @@
+# Virtual Environment
+myvirtual/
+venv/
+env/
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Environment variables
+.env
+
+# Streamlit
+.streamlit/
+
+# ChromaDB
+chroma_db/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Model cache
+.cache/
+*.bin
+*.safetensors

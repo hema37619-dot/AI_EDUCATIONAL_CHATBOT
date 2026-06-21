@@ -1,0 +1,9 @@
+langchain
+langchain_community
+sentence_transformers
+chromadb
+diffusers
+transformers
+torch
+streamlit
+pillow
