@@ -1,5 +1,5 @@
 from langchain_community.vectorstores import Chroma
-from utils.embedding import get_embedding_model
+from rag.embedding import get_embedding_model
 def get_retriever():
     #load the embedding model
     embedding_model=get_embedding_model()
