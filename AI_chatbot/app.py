@@ -1,6 +1,8 @@
 import streamlit as st
 from rag.retriever import get_retriever
 import requests
+from groq import Groq
+import os
 
 # -------------------------------
 # Page Configuration
@@ -127,36 +129,16 @@ Question: {question}
 
 Answer:"""
 
-        # Generate Answer via Ollama
+        # Generate Answer via Groq
         with st.spinner("🤖 Generating answer..."):
-            response = requests.post(
-                "http://localhost:11434/api/generate",
-                json={
-                    "model": "llama3",
-                    "prompt": prompt,
-                    "stream": False
-                }
+            client = Groq(api_key=st.secrets["GROQ_API_KEY"])
+            response = client.chat.completions.create(
+                model="llama-3.3-70b-versatile",
+                messages=[{"role": "user", "content": prompt}]
             )
-            answer = response.json()["response"].strip()
+            answer = response.choices[0].message.content.strip()
 
         # Display Answer
         st.subheader("🤖 Answer")
         st.markdown(
-            f'<div class="answer-box">{answer}</div>',
-            unsafe_allow_html=True
-        )
-
-    except requests.exceptions.ConnectionError:
-        st.error("❌ Ollama is not running. Please start it with: ollama serve")
-
-    except Exception as e:
-        st.error(f"Error: {str(e)}")
-
-# -------------------------------
-# Footer
-# -------------------------------
-st.markdown("---")
-st.markdown(
-    "<center>Built with ❤️ Streamlit + LangChain + Ollama + ChromaDB</center>",
-    unsafe_allow_html=True
-)
+            f'<div class="answer-bo

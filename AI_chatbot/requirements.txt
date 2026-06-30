@@ -8,4 +8,5 @@ pypdf
 transformers
 torch
 huggingface_hub
+groq
 #pip install langchain-community langchain-huggingface
