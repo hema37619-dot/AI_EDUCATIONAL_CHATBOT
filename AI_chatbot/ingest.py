@@ -1,6 +1,6 @@
-from utils.loader import load_all_pdfs
-from utils.splitter import split_documents
-from utils.embedding import get_embedding_model
+from rag.loader import load_all_pdfs
+from rag.splitter import split_documents
+from rag.embedding import get_embedding_model
 from langchain_community.vectorstores import Chroma
 
 print("Loading PDFs...")
