@@ -1,5 +1,5 @@
 import streamlit as st
-from utils.retriever import get_retriever
+from rag.retriever import get_retriever
 import requests
 
 # -------------------------------
