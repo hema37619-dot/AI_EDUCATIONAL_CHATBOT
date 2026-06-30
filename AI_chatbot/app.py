@@ -141,4 +141,18 @@ Answer:"""
         # Display Answer
         st.subheader("🤖 Answer")
         st.markdown(
-            f'<div class="answer-bo
+            f'<div class="answer-box">{answer}</div>',
+            unsafe_allow_html=True
+        )
+
+    except Exception as e:
+        st.error(f"Error: {str(e)}")
+
+# -------------------------------
+# Footer
+# -------------------------------
+st.markdown("---")
+st.markdown(
+    "<center>Built with ❤️ Streamlit + LangChain + Groq + ChromaDB</center>",
+    unsafe_allow_html=True
+)
